@@ -25,7 +25,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/@fancyapps/ui/dist/fancybox/fancybox.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -96,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "e41c6c00-4bf1-491a-9610-5b0d074cb0a4"
   }
 }

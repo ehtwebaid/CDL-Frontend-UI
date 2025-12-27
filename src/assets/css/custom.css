@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /*font-family: "Poppins", sans-serif;*/
@@ -13,7 +12,6 @@ body {
 .container {
     max-width: 1370px;
 }
-
 a {
     color: #1f1f1f;
     text-decoration: none !important;
@@ -131,11 +129,11 @@ a,
  :focus {
     outline: 0;
 }
-.form-select:focus {
+.form-select:focus { 
   box-shadow: none;
   border-color: #999999;
 }
-.form-control:focus {
+.form-control:focus { 
   box-shadow: none;
   border-color: #999999;
 }
@@ -214,7 +212,7 @@ a,
 
 
 /*==================================header Start================================*/
-.tm-header {
+.tm-header {   
     position: absolute;
     width: 100%;
     z-index: 9999;
@@ -266,9 +264,9 @@ a,
 
 /*======================jHome-sec=========================*/
 .tm-jHome-sec {
-  width: 100%;
+  width: 100%;  
 }
-.tm-jHome-sec-panel{
+.tm-jHome-sec-panel{    
     border-radius: 20px;
 }
 .tm-jHome-sec-panel-img img {
@@ -288,7 +286,7 @@ a,
 }
 /*============================study-meterials============================*/
 .tm-study-meterials {
-  width: 100%;
+  width: 100%;  
 }
 .tm-study-meterials-side-bar {
   background-color: #E9E9E9;
@@ -354,7 +352,7 @@ a,
 }
 /*============================Select Examination============================*/
 .tm-select-examination-sec {
-  width: 100%;
+  width: 100%;  
 }
 .tm-select-examination-panel-left-no span {
   background-color: #2C284E;
@@ -403,7 +401,7 @@ a,
 
 /*=======================Exam Instructions========================*/
 .tm-exam-instructions-sec {
-  width: 100%;
+  width: 100%;  
 }
 .tm-exam-instructions-sec-panel{
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.25);
@@ -411,7 +409,7 @@ a,
     padding: 30px 20px;
     margin-top: 30px;
 }
-.tm-exam-instructions-sec-panel ul {
+.tm-exam-instructions-sec-panel ul {  
   padding-left: 20px;
 }
 .tm-exam-instructions-sec-panel ul li{
@@ -433,7 +431,7 @@ a,
 }
 /*=======================Exam========================*/
 .tm-exam-sec {
-  width: 100%;
+  width: 100%;  
 }
 .tm-exam-sec-panel-main{
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.25);
@@ -467,7 +465,7 @@ a,
 .tm-result-sec-top h2 {
     color: #5EAC1A;
 }
-.tm-result-sec-top h3 {
+.tm-result-sec-top h3 {    
     color: #2C284E;
 }
 .tm-result-sec-top h3 span{
@@ -548,9 +546,9 @@ a,
     position: relative;
 }
 .tm-login-sec-img{
-   position: absolute;
+   position: absolute; 
 }
-.tm-login-sec-form-main {
+.tm-login-sec-form-main { 
   position: relative;
   z-index: 1;
   padding-top: 200px;

@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* CSS Document */
+@media (min-width: 2501px) and (max-width: 3600px) {
+	
+}
+@media (min-width: 2501px) and (max-width: 3600px) {
+	
+}
+@media (min-width: 2048px) and (max-width: 2500px) {
+	
+}
+@media (min-width: 1707px) and (max-width: 2048px) {
+	
+}
+@media (min-width: 1525px) and (max-width: 1707px) {
+    
+}
+@media (min-width: 1366px) and (max-width: 1525px) {
+    body{font-size: 18px;}
+    h1{font-size: 44px;}
+    h2{font-size: 32px;}
+    h3{font-size: 22px;}
+    h4{font-size: 20px;}
+    .tm-main-all {padding: 250px 0 90px;}
+    .tm-login-sec-form-main {padding-top: 130px;}
+    .tm-login-sec-form .form-control {padding: 10px;}
+    .tm-btn-main,.tm-btn {font-size: 19px; padding: 16px 20px;}
+    .tm-exam-instructions-sec-panel .tm-btn-main {margin-top: 80px;}
+    .tm-exam-done-containt img {width: 125px;}
+    .tm-login-sec-img img {width: 60%;}
+}
+@media (min-width: 1200px) and (max-width: 1365px) {
+    body{font-size: 18px;}
+    h1{font-size: 42px;}
+    h2{font-size: 30px;}
+    h3{font-size: 22px;}
+    h4{font-size: 20px;}
+    .tm-main-all {padding: 240px 0 80px;}
+    .tm-login-sec-form-main {padding-top: 120px;}
+    .tm-login-sec-img img {width: 55%;}
+    .tm-login-sec-form .form-control {padding: 10px 10px;}
+    .tm-login-sec-form .tm-btn {margin-top: 10px;}
+    .tm-btn-main,.tm-btn {font-size: 18px; padding: 15px 19px;}
+    .tm-exam-instructions-sec-panel .tm-btn-main {margin-top: 70px;}
+    .tm-exam-done-containt img {width: 120px;}
+}
+@media (min-width: 1024px) and (max-width: 1200px){
+    body{font-size: 18px;}
+    h1{font-size: 42px;}
+    h2{font-size: 30px;}
+    h3{font-size: 22px;}
+    h4{font-size: 20px;}
+    .tm-main-all {padding: 240px 0 80px;}
+    .tm-login-sec-form-main {padding-top: 120px;}
+    .tm-login-sec-form .tm-btn {margin-top: 10px;}
+    .tm-login-sec-img img {width: 48%;}
+    .tm-login-sec-form .form-control {padding: 9px 10px;}
+    .tm-btn-main,.tm-btn {font-size: 17px; padding: 14px 18px;}
+    .tm-exam-instructions-sec-panel .tm-btn-main {margin-top: 60px;}
+    .tm-exam-done-containt img {width: 110px;}
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+    
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    body{font-size: 18px;}
+    h1{font-size: 38px;}
+    h2{font-size: 28px;}
+    h3{font-size: 22px;}
+    h4{font-size: 20px;}    
+    .tm-jHome-sec-panel-text {height: auto;}    
+    .tm-study-meterials-content-panel-bottom-text h5{font-size: 14px;}
+    .tm-study-meterials-content-panel-bottom-text span {font-size: 13px;}
+    .tm-study-meterials-content-panel-bottom-icon {height: 120px;}
+    .tm-study-meterials-side-bar .nav-link {font-size: 16px;}  
+    .tm-btn-main,.tm-btn {font-size: 16px; padding: 13px 17px;} 
+    .tm-exam-instructions-sec-panel .tm-btn-main {margin-top: 50px;} 
+    .tm-exam-done-containt img {width: 100px;}
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+    .tm-main-all {padding: 230px 0 70px;}
+    .tm-login-sec-form-main {padding-top: 120px;}
+    .tm-login-sec-img img {width: 48%;}
+    .tm-login-sec-form .form-control {padding: 10px 10px;}
+    .tm-login-sec-form .tm-btn {margin-top: 10px;}
+}
+@media only screen and (max-width: 991px) {  
+   .tm-header-menu .navbar-brand img{width: 150px;}
+   .tm-header-menu.page-header {background-color: #2C284E;}
+   .tm-header-menu .navbar-toggler {padding: 0; border: 0;}
+   .tm-header-menu .navbar-toggler-icon {filter: brightness(0) invert(1);}
+   .tm-header-menu .navbar-toggler:focus {box-shadow: none;}
+   .tm-header-menu-list ul li a {color: #fff !important; padding: 5px 0 !important;}
+    .tm-login-sec-img img {width: 48%;}
+    .tm-login-sec-form-main {padding-top: 110px;}
+    .tm-login-sec-form .form-control {padding: 10px 10px;}
+    .tm-login-sec-form .tm-btn {margin-top: 10px;}
+    .tm-header-menu.page-header {padding: 5px 0;}
+    .tm-main-all {padding: 140px 0 70px;}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    
+}
+@media only screen and (max-width: 767px){    
+    body{font-size: 16px;}
+    h1{font-size: 34px;}
+    h2{font-size: 26px;}
+    h3{font-size: 22px;}
+    h4{font-size: 20px;}
+    .tm-main-all {padding: 130px 0 60px;}    
+    .tm-jHome-sec-panel-text {height: auto;}
+    .tm-jHome-sec-panel{margin-top: 30px;}
+    .tm-sec-title {margin: 0 0 10px;}
+    .tm-btn-main,.tm-btn {font-size: 15px; padding: 12px 16px;}
+    .tm-study-meterials-content {margin-top: 30px;}
+    .tm-study-meterials-content-panel-top {display: block;}
+    .tm-study-meterials-content-panel-top-search-bar {width: 100%; margin-top: 20px;}
+    .tm-study-meterials-content-panel-bottom-panel {margin-top: 30px;}
+    .tm-study-meterials-content-panel-bottom {margin-top: 0;}
+    .tm-login-sec-img {position: unset;}
+    .tm-login-sec{margin-top: 0;}
+    .tm-login-sec-img img {width: 100%;height: auto;}
+    .tm-login-sec-form-main{padding: 50px 0}
+    .tm-login-sec-form .form-control {padding: 8px 10px;}
+    .tm-login-sec-form-title {text-align: center;}
+    .tm-jHome-sec-panel-img img {height: 240px;}
+    .tm-select-examination-panel {display: block;}
+    .tm-select-examination-panel-left {display: block;}
+    .tm-select-examination-panel-left-content-list ul {justify-content: start; margin-bottom: 20px;}
+    .tm-select-examination-panel-left-content-list {margin-top: 0;}
+    .tm-select-examination-panel-left-content {margin-top: 10px;}
+    .tm-exam-instructions-sec-panel .tm-btn-main {margin-top: 40px;}
+    .tm-exam-done-containt img {width: 90px;}
+}
+@media only screen and (max-width: 480px) {     
+    body{font-size: 14px;}
+    h1{font-size: 24px;}
+    h2{font-size: 20px;}
+    h3{font-size: 18px;}
+    h4{font-size: 16px;}
+    .tm-main-all {padding: 120px 0 50px;}
+    .tm-header-logo img {width: 200px;}
+    .tm-jHome-sec-panel-img img {height: 200px;}
+    .tm-btn-main,.tm-btn {font-size: 14px; padding: 10px 15px;} 
+    .tm-exam-done-containt img {width: 80px;}   
+}
