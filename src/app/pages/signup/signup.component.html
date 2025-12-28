@@ -1,54 +1,91 @@
   <header class="tm-header">
-      <div class="tm-header-top">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-                <div class="tm-header-logo">
-                  <a [routerLink]="'/'"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-                </div>
+    <div class="tm-header-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tm-header-logo">
+              <a [routerLink]="'/'"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
             </div>
           </div>
         </div>
       </div>
-    </header>
-    <section class="tm-login-sec">
-      <div class="tm-login-sec-img">
-        <img src="assets/img/login-img.jpg" class="img-fluid">
-      </div>
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 offset-md-6">
-            <div class="tm-login-sec-form-main">
-              <div class="tm-login-sec-form-title">
-                <h2>To view your result please fill out the form</h2>
-              </div>
-              <div class="tm-login-sec-form">
+    </div>
+  </header>
+  <section class="tm-login-sec">
+    <div class="tm-login-sec-img">
+      <img src="assets/img/login-img.jpg" class="img-fluid">
+    </div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 offset-md-6">
+          <div class="tm-login-sec-form-main">
+            <div class="tm-login-sec-form-title">
+              <h2>To view your result please fill out the form</h2>
+            </div>
+            <div class="tm-login-sec-form">
+              <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Your Name</label>
-                  <input type="text" class="form-control" id="exampleFormControlInput1">
+                  <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="name"
+                    [class.is-invalid]="
+                    submitting && signupForm.get('name')?.invalid
+                  ">
+                  <div class="invalid-feedback" *ngIf="signupForm.get('name')?.hasError('required')">
+                    Name is required.
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleFormControlInput2">
+                  <input type="email" class="form-control" id="exampleFormControlInput2 " formControlName="email"
+                    [class.is-invalid]="
+                    submitting && signupForm.get('email')?.invalid
+                  ">
+                  <div class="invalid-feedback" *ngIf="signupForm.get('email')?.hasError('required')">
+                    Email is required.
+                  </div>
+                  <div class="invalid-feedback" *ngIf="signupForm.get('email')?.hasError('email')">
+                    Enter a valid email address.
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-                  <input type="tel" class="form-control" id="exampleFormControlInput3">
+                  <input type="text" class="form-control" formControlName="phone_no" appNumeric maxlength="10"
+                    [class.is-invalid]="
+                    submitting && signupForm.get('phone_no')?.invalid
+                  " />
+                  <div class="invalid-feedback" *ngIf="signupForm.get('phone_no')?.hasError('required')">
+                    Phone is required.
+                  </div>
+                  <div class="invalid-feedback" *ngIf="signupForm.get('phone_no')?.hasError('minlength')">
+                    Phone number must be at least 10 digits.
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Set Password for future login</label>
-                  <input type="password" class="form-control" id="exampleFormControlInput3">
+                  <input type="password" class="form-control" formControlName="password" [class.is-invalid]="
+                    submitting && signupForm.get('password')?.invalid
+                  " />
+                  <div class="invalid-feedback" *ngIf="signupForm.get('password')?.hasError('required')">
+                    Password is required.
+                  </div>
+                  <div class="invalid-feedback" *ngIf="signupForm.get('password')?.hasError('minlength')">
+                    Password must be at least
+                    {{ signupForm.get('password')?.errors?.['minlength']?.requiredLength }}
+                    characters.
+                  </div>
                 </div>
-                <div  class="text-center">
+                <div class="text-center">
                   <button type="submit" class="tm-btn btn btn-primary">Submit & view results</button>
                   <p class="mt-3">
                     Already have an account?
                     <a [routerLink]="'/login'" class="text-danger">Login</a>
                   </p>
                 </div>
-              </div>
+              </form>
+
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>

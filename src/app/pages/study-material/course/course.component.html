@@ -1,0 +1,21 @@
+ <cdk-virtual-scroll-viewport
+  itemSize="48"
+  style="height: 300px;"
+>
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+<button
+    *cdkVirtualFor="let course of courses; let i = index"
+    class="nav-link"
+    [class.active]="i === selectedIndex"
+    (click)="selectCourse(i,course)"
+    type="button"
+    role="tab"
+  >
+    {{ course.name }}
+  </button>
+</div>
+
+</cdk-virtual-scroll-viewport>
+
+
+

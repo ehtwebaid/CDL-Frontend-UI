@@ -6,7 +6,6 @@ import { RouterLink } from "@angular/router";
   standalone: true,
   imports: [RouterLink],
   templateUrl: './select-exam.component.html',
-  styles: [`:host { display: block; width: 90%; }`], // Add this line
   styleUrl: './select-exam.component.css'
 })
 export class SelectExamComponent {

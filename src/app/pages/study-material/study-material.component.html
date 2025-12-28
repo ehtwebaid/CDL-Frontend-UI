@@ -3,19 +3,12 @@
           <div class="row">
             <div class="col-md-3">
               <div class="tm-study-meterials-side-bar">
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                  <button class="nav-link active" id="v-pills-course1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-course1" type="button" role="tab" aria-controls="v-pills-course1" aria-selected="true">course 1</button>
-                  <button class="nav-link" id="v-pills-course2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-course2" type="button" role="tab" aria-controls="v-pills-course2" aria-selected="false">course 2</button>
-                  <button class="nav-link" id="v-pills-course3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-course3" type="button" role="tab" aria-controls="v-pills-course3" aria-selected="true">course 3</button>
-                  <button class="nav-link" id="v-pills-course4-tab" data-bs-toggle="pill" data-bs-target="#v-pills-course4" type="button" role="tab" aria-controls="v-pills-course4" aria-selected="false">course 4</button>
-                </div>
+               <app-course (changeCourse)="changeCourse($event)"></app-course>
               </div>
             </div>
             <div class="col-md-9">
               <div class="tm-study-meterials-content">
-
-                  <div class="tab-pane fade show active" id="v-pills-course1" role="tabpanel" aria-labelledby="v-pills-course1-tab" tabindex="0">
-                    <div class="tm-study-meterials-content-panel">
+                 <div class="tm-study-meterials-content-panel">
                       <div class="tm-study-meterials-content-panel-top">
                         <div class="tm-study-meterials-content-panel-top-title">
                           <h2>All Study Materials</h2>
@@ -29,7 +22,7 @@
                       </div>
                       <div class="tm-study-meterials-content-panel-bottom">
                         <div class="row">
-                          <div class="col-md-4">
+                          <div class="col-md-4" *ngFor="let item of study_materials">
                             <div class="tm-study-meterials-content-panel-bottom-panel">
                               <div class="tm-study-meterials-content-panel-bottom-icon">
                                 <a href="#"><img src="assets/img/study-meterials-content-icon1.png" alt="" class="img-fluid"></a>
@@ -40,32 +33,11 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-4">
-                            <div class="tm-study-meterials-content-panel-bottom-panel">
-                              <div class="tm-study-meterials-content-panel-bottom-icon">
-                                <a href="#"><img src="assets/img/study-meterials-content-icon1.png" alt="" class="img-fluid"></a>
-                              </div>
-                              <div class="tm-study-meterials-content-panel-bottom-text">
-                                <a href="#"><h5>Truck and Bus Driver Handbook.doc</h5></a>
-                                <span>Nov 02,2025</span>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="tm-study-meterials-content-panel-bottom-panel">
-                              <div class="tm-study-meterials-content-panel-bottom-icon">
-                                <a href="#"><img src="assets/img/study-meterials-content-icon2.png" alt="" class="img-fluid"></a>
-                              </div>
-                              <div class="tm-study-meterials-content-panel-bottom-text">
-                                <a href="#"><h5>Truck and Bus Driver Guide Video.mp4</h5></a>
-                                <span>Nov 02,2025</span>
-                              </div>
-                            </div>
-                          </div>
+
+
                         </div>
                       </div>
                     </div>
-                  </div>
 
 
               </div>

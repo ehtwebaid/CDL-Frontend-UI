@@ -1,36 +1,45 @@
   <header class="tm-header">
-      <div class="tm-header-top">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-                <div class="tm-header-logo">
-                  <a [routerLink]="'/'"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-                </div>
+    <div class="tm-header-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tm-header-logo">
+              <a [routerLink]="'/'"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
             </div>
           </div>
         </div>
       </div>
-    </header>
-    <section class="tm-login-sec">
-      <div class="tm-login-sec-img">
-        <img src="assets/img/login-img.jpg" class="img-fluid">
-      </div>
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 offset-md-6">
-            <div class="tm-login-sec-form-main">
-              <div class="tm-login-sec-form-title">
-                <h2>To view your result please fill out the form</h2>
-              </div>
-              <div class="tm-login-sec-form">
-
+    </div>
+  </header>
+  <section class="tm-login-sec">
+    <div class="tm-login-sec-img">
+      <img src="assets/img/login-img.jpg" class="img-fluid">
+    </div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 offset-md-6">
+          <div class="tm-login-sec-form-main">
+            <div class="tm-login-sec-form-title">
+              <h2>To view your result please fill out the form</h2>
+            </div>
+            <div class="tm-login-sec-form">
+              @if(!error_type){
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleFormControlInput2">
+                  <input type="email" class="form-control" id="exampleFormControlInput2" formControlName="email"
+                    [class.is-invalid]="submitting && loginForm.get('email')?.invalid">
+                  <div class="invalid-feedback" *ngIf="loginForm.get('email')?.hasError('required')">Email is required.
+                  </div>
+                  <div class="invalid-feedback" *ngIf="loginForm.get('email')?.hasError('email')">Enter a valid email
+                    address.</div>
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleFormControlInput3">
+                  <input type="password" class="form-control" id="exampleFormControlInput3" formControlName="password"
+                    [class.is-invalid]="submitting && loginForm.get('password')?.invalid">
+                  <div class="invalid-feedback" *ngIf="loginForm.get('password')?.hasError('required')">Password is
+                    required.</div>
                 </div>
                 <div class="text-center">
                   <button type="submit" class="tm-btn btn btn-primary">Submit</button>
@@ -39,10 +48,16 @@
                     <a [routerLink]="'/signup'" class="text-danger">Sign Up</a>
                   </p>
                 </div>
+              </form>
+              }
+              @else {
+              <app-otp-verfication [otpInfo]="otpInfo" ></app-otp-verfication>
+              }
 
-              </div>
+
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>

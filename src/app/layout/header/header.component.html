@@ -33,9 +33,12 @@
                  <a class="nav-link" [routerLinkActive]="['active']" aria-current="page"  [routerLink]="'/exam'">Examination</a>
                </li>
              </ul>
-             <div class="tm-menu-btn">
+             <div class="tm-menu-btn" *ngIf="!(userInfo$ | async)">
                <a [routerLink]="'/login'" class="tm-btn-main">Login / Signup</a>
              </div>
+             <div class="tm-menu-btn" *ngIf="userInfo$ | async">
+              <button class="tm-btn-main" (click)="logout()">Logout</button>
+            </div>
            </div>
          </div>
        </nav>
