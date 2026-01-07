@@ -19,7 +19,7 @@ export class StudyMaterialComponent {
   public study_material_rows :any=[]
   public selectedIndex:any;
   itemsPerRow = 3;
-itemSize = 230; // card height
+  itemSize = 230; // card height
 
   changeCourse(data:any)
   {
@@ -28,13 +28,19 @@ itemSize = 230; // card height
       {
         this.selectedIndex=data?.selectedIndex;
         this.study_materials=res.data;
-        for (let i = 0; i < this.study_materials.length; i += 3) {
-          this.study_material_rows.push(this.study_materials.slice(i, i + 3));
-        }
+
       }
     })
   }
   trackById(index: number, item: any) {
   return item._id || index;
+}
+get studyRows() {
+  const rows = [];
+  for (let i = 0; i < this.study_materials.length; i += this.itemsPerRow) {
+    rows.push(this.study_materials.slice(i, i + this.itemsPerRow));
+  }
+
+  return rows;
 }
 }

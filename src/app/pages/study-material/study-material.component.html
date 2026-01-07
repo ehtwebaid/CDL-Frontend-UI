@@ -1,47 +1,74 @@
- <div class="tm-study-meterials">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="tm-study-meterials-side-bar">
-               <app-course (changeCourse)="changeCourse($event)"></app-course>
+<div class="tm-study-meterials">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="tm-study-meterials-side-bar course_bar">
+          <app-course (changeCourse)="changeCourse($event)"></app-course>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="tm-study-meterials-content">
+          <div class="tm-study-meterials-content-panel">
+            <div class="tm-study-meterials-content-panel-top">
+              <div class="tm-study-meterials-content-panel-top-title">
+                <h2>All Study Materials</h2>
+              </div>
+              <div class="tm-study-meterials-content-panel-top-search-bar">
+                <div class="input-group">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i
+                      class="fas fa-search"></i></button>
+                  <input type="text" class="form-control" placeholder="Search"
+                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
               </div>
             </div>
-            <div class="col-md-9">
-              <div class="tm-study-meterials-content">
-                 <div class="tm-study-meterials-content-panel">
-                      <div class="tm-study-meterials-content-panel-top">
-                        <div class="tm-study-meterials-content-panel-top-title">
-                          <h2>All Study Materials</h2>
-                        </div>
-                        <div class="tm-study-meterials-content-panel-top-search-bar">
-                          <div class="input-group">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fas fa-search"></i></button>
-                            <input type="text" class="form-control" placeholder="Search" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tm-study-meterials-content-panel-bottom">
-                        <div class="row">
-                          <div class="col-md-4" *ngFor="let item of study_materials">
-                            <div class="tm-study-meterials-content-panel-bottom-panel">
-                              <div class="tm-study-meterials-content-panel-bottom-icon">
-                                <a href="#"><img src="assets/img/study-meterials-content-icon1.png" alt="" class="img-fluid"></a>
-                              </div>
-                              <div class="tm-study-meterials-content-panel-bottom-text">
-                                <a href="#"><h5>Truck and Bus 2 Driver Handbook.doc</h5></a>
-                                <span>Nov 02,2025</span>
-                              </div>
-                            </div>
-                          </div>
+            <div class="tm-study-meterials-content-panel-bottom">
+              <div class="row">
+                <cdk-virtual-scroll-viewport class="study-viewport" itemSize="300">
 
+                  <div class="study-row" *cdkVirtualFor="let row of studyRows">
 
-                        </div>
+                    <div class="tm-study-meterials-content-panel-bottom-panel study-card" *ngFor="let item of row">
+
+                      <div class="tm-study-meterials-content-panel-bottom-icon">
+                        <a href="#">
+                          @if(item?.file_type=='pdf')
+                          {
+                           <img src="assets/img/study-meterials-content-icon1.png" />
+                          }
+                          @else if(item?.file_type=='video')
+                          {
+                            <img src="{{item?.video_thumbnail}}" />
+                          }
+                        </a>
                       </div>
+
+                      <div class="tm-study-meterials-content-panel-bottom-text">
+                        <a href="#">
+                          <h5>{{item?.originalName}}</h5>
+                        </a>
+                        <span>Nov 02,2025</span>
+                      </div>
+
                     </div>
+
+                  </div>
+
+                </cdk-virtual-scroll-viewport>
+
+
+
+
+
 
 
               </div>
             </div>
           </div>
+
+
         </div>
       </div>
+    </div>
+  </div>
+</div>

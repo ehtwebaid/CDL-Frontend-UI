@@ -572,4 +572,73 @@ a,
 cdk-virtual-scroll-viewport {
   overflow: auto;
 }
+app-study-material {
+  width: 100%;
+}
+app-exam-result {
+  width: 100%;
+}
+/* Viewport */
+.study-viewport {
+  height: calc(100vh - 180px);
+  width: 100%;
+  padding: 24px;
+}
+
+/* One virtual item = one row */
+.study-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+/* Card */
+.tm-study-meterials-content-panel-bottom-panel.study-card {
+  background: #ffffff;
+  border-radius: 18px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+}
+
+.tm-study-meterials-content-panel-bottom-panel.study-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Icon area */
+.tm-study-meterials-content-panel-bottom-icon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-study-meterials-content-panel-bottom-icon img {
+  width: 50px;
+}
+
+/* Divider + text */
+.tm-study-meterials-content-panel-bottom-text {
+  padding: 22px;
+  border-top: 1px solid #ececec;
+}
+
+.tm-study-meterials-content-panel-bottom-text h5 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.tm-study-meterials-content-panel-bottom-text span {
+  font-size: 14px;
+  color: #9aa3b2;
+}
+
 
