@@ -8,6 +8,7 @@ import { CommonService } from '../../service/common.service';
 import { setUserInfo, getUserInfo, setToken, getToken } from '../../../global/app.global';
 import { RouterLink } from '@angular/router';
 import { OtpVerficationComponent } from '../otp-verfication/otp-verfication.component';
+import { RedirectService } from '../../service/redirect.service';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent {
 private fb = inject(FormBuilder);
   private router = inject(Router);
   private commonService = inject(CommonService);
+  private redirectService = inject(RedirectService);
   public otpInfo: any;
   public error_type: any = null;
   displayLoginBlock:boolean=true;
@@ -54,8 +56,9 @@ private fb = inject(FormBuilder);
           setToken(res.data.token);
           this.commonService.showSuccess(res.message, "Signup");
           this.commonService.setUserInfo();
-
-
+          const redirectUrl = this.redirectService.getLastUrl() || '/study-material';
+          this.redirectService.clear();
+          this.router.navigateByUrl(redirectUrl);
         }
         else if (res.status == 'error' && res?.error_type == 'email_not_validated') {
           this.error_type = 'email_not_validated';

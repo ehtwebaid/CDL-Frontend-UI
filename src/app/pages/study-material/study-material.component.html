@@ -18,7 +18,7 @@
                   <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i
                       class="fas fa-search"></i></button>
                   <input type="text" class="form-control" placeholder="Search"
-                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    aria-label="Example text with button addon" aria-describedby="button-addon1" (keyup)="searchFilter($event)">
                 </div>
               </div>
             </div>
@@ -28,26 +28,50 @@
 
                   <div class="study-row" *cdkVirtualFor="let row of studyRows">
 
-                    <div class="tm-study-meterials-content-panel-bottom-panel study-card" *ngFor="let item of row">
+                    <div class="tm-study-meterials-content-panel-bottom-panel study-card" *ngFor="let item of row;let i = index">
 
                       <div class="tm-study-meterials-content-panel-bottom-icon">
-                        <a href="#">
-                          @if(item?.file_type=='pdf')
-                          {
-                           <img src="assets/img/study-meterials-content-icon1.png" />
-                          }
-                          @else if(item?.file_type=='video')
-                          {
-                            <img src="{{item?.video_thumbnail}}" />
-                          }
-                        </a>
+                        @if(selectIndex==0 || loginToken)
+                        {
+                          <a  (click)="openGallery(i)" data-fancybox="gallery" href="javascript:void(0)">
+                            @if(item?.file_type=='pdf')
+                            {
+                            <img src="assets/img/study-meterials-content-icon1.png" />
+                            }
+                            @else if(item?.file_type=='video')
+                            {
+                              <img src="{{item?.video_thumbnail}}" />
+                            }
+                          </a>
+                        }
+                        @else{
+                          <a  [routerLink]="'/login'">
+                            @if(item?.file_type=='pdf')
+                            {
+                            <img src="assets/img/study-meterials-content-icon1.png" />
+                            }
+                            @else if(item?.file_type=='video')
+                            {
+                              <img src="{{item?.video_thumbnail}}" />
+                            }
+                          </a>
+                        }
+
                       </div>
 
                       <div class="tm-study-meterials-content-panel-bottom-text">
-                        <a href="#">
+                         @if(selectIndex==0 || loginToken)
+                        {
+                        <a  data-fancybox="gallery">
                           <h5>{{item?.originalName}}</h5>
                         </a>
-                        <span>Nov 02,2025</span>
+                        }
+                        @else{
+                          <a    [routerLink]="'/login'">
+                          <h5>{{item?.originalName}}</h5>
+                        </a>
+                        }
+                        <span>{{item?.created_at | date:'MMM dd, yyyy'}}</span>
                       </div>
 
                     </div>

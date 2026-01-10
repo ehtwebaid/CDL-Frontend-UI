@@ -642,3 +642,24 @@ app-exam-result {
 }
 
 
+.virtual-row {
+  width: 100%;
+}
+
+.tm-select-examination-panel {
+  width: 100%;
+}
+cdk-virtual-scroll-viewport {
+  display: block;
+  width: 100%;
+  min-width: 100%;
+}
+
+.tm-select-examination-panel {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+  border-bottom: 1px solid #4C4C4C;
+}
+
+

@@ -4,26 +4,32 @@ import { ActivatedRouteSnapshot, CanActivateFn, Router, UrlTree } from '@angular
 import { inject } from '@angular/core';
 import { CommonService } from './common.service';
 import { getToken, getUserInfo } from '../../global/app.global';
+import { RedirectService } from './redirect.service';
 
 export const authGuard: CanActivateFn = (route, state): boolean | UrlTree => {
   const router = inject(Router);
   const commonService = inject(CommonService);
+  const redirectService = inject(RedirectService);
   if (commonService.isBrowser()) {
     const token = getToken();
     const user = getUserInfo();
     if (!token) {
-      return router.createUrlTree(['/']);
+      redirectService.setLastUrl(state.url);
+      return router.createUrlTree(['/login']);
     }
     else {
 
-      if (route?.parent?.data['role'] != user.role) {
-        return router.createUrlTree(['/']);
+      if (route?.data['role'] != user.role) {
+         redirectService.setLastUrl(state.url);
+         alert(route?.parent?.data['role']);
+        return router.createUrlTree(['/login']);
       }
       else {
         return true;
       }
     }
-    return token ? true : router.createUrlTree(['/']);
+    redirectService.setLastUrl(state.url);
+    return token ? true : router.createUrlTree(['/login']);
   }
 
   // Fallback for non-browser environments (e.g., SSR)
