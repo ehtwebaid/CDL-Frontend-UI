@@ -27,11 +27,14 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-              "src/assets/css/responsive.css",
+              "src/responsive.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/@fancyapps/ui/dist/fancybox/fancybox.css"
             ],
-            "scripts": [ "node_modules/jquery/dist/jquery.min.js","node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd.js"],
+            "scripts": [ "node_modules/jquery/dist/jquery.min.js",
+            "node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd.js"
+
+          ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {

@@ -4,6 +4,7 @@ import { AfterViewInit, Component, ElementRef, EventEmitter, inject, Input, Outp
 import { setToken, setUserInfo } from '../../../global/app.global';
 import { catchError, exhaustMap, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { RedirectService } from '../../service/redirect.service';
 @Component({
   selector: 'app-otp-verfication',
   standalone: true,
@@ -16,6 +17,7 @@ export class OtpVerficationComponent implements AfterViewInit {
   otpArray = Array(6).fill('');
   private commonService = inject(CommonService);
   private router = inject(Router);
+  private redirectService=inject(RedirectService);
   @ViewChildren('otpInput',) otpInputs!: QueryList<ElementRef>;
   @Input() redirectDashboard: any;
   @Output() loginSuccess = new EventEmitter();
@@ -87,6 +89,9 @@ export class OtpVerficationComponent implements AfterViewInit {
           setToken(res.data.token);
           this.commonService.showSuccess(res.message, "Verify OTP");
           this.commonService.setUserInfo();
+          const redirectUrl = this.redirectService.getLastUrl() || '/study-material';
+          this.redirectService.clear();
+          this.router.navigateByUrl(redirectUrl);
 
 
         }

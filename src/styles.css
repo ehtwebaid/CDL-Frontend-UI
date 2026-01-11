@@ -464,8 +464,11 @@ a,
 .tm-result-sec-top img {
     width: 134px;
 }
-.tm-result-sec-top h2 {
+.tm-result-sec-top .exam_pass {
     color: #5EAC1A;
+}
+.tm-result-sec-top .exam_failed {
+    color: #DD1C3A;
 }
 .tm-result-sec-top h3 {
     color: #2C284E;
@@ -662,4 +665,31 @@ cdk-virtual-scroll-viewport {
   border-bottom: 1px solid #4C4C4C;
 }
 
+.tm-question {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
 
+.tm-question-no {
+  min-width: 24px;
+  font-weight: 600;
+}
+
+.tm-question-body {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tm-question-image {
+  max-width: 100%;
+  height: auto;
+}
+.tm-question-image {
+  max-width: 300px;   /* fixed width */
+  max-height: 300px;  /* fixed height */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}

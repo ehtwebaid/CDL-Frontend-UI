@@ -21,11 +21,11 @@ export const routes: Routes = [
 
       { path: 'exam', loadComponent: () => import('./pages/select-exam/select-exam.component').then(m => m.SelectExamComponent) },
 
-      { path: 'exam/instruction/:slug', canActivate:[authGuard],data: { role: 'S' },loadComponent: () => import('./pages/exam-instruction/exam-instruction.component').then(m => m.ExamInstructionComponent) },
+      { path: 'exam/instruction/:slug/:index', canActivate:[authGuard],data: { role: 'S' },loadComponent: () => import('./pages/exam-instruction/exam-instruction.component').then(m => m.ExamInstructionComponent) },
 
-      { path: 'exam/result/:slug', canActivate:[authGuard],data: { role: 'S' },loadComponent: () => import('./pages/exam-result/exam-result.component').then(m => m.ExamResultComponent) },
+      { path: 'exam/result/:slug', canActivate:[authGuard],data: { role: 'S',ssr: false },loadComponent: () => import('./pages/exam-result/exam-result.component').then(m => m.ExamResultComponent) },
 
-      { path: 'exam/questionset/:slug', canActivate:[authGuard],data: { role: 'S' },loadComponent: () => import('./pages/question-set/question-set.component').then(m => m.QuestionSetComponent) },
+      { path: 'exam/questionset/:slug/:index', canActivate:[authGuard],data: { role: 'S' },loadComponent: () => import('./pages/question-set/question-set.component').then(m => m.QuestionSetComponent) },
 
     ]
 

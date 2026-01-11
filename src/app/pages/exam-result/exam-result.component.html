@@ -1,33 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="tm-result-sec">
+        <div class="tm-result-sec-top text-center">
 
- <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-8 offset-lg-2">
-            <div class="tm-result-sec">
-              <div class="tm-result-sec-top text-center">
-                <img src="assets/img/result-top-icon.png" alt="" class="img-fluid">
-                <h2>Passed</h2>
-                <h3>Marks: <span>15/20</span></h3>
-                <p>Total Number of questions: 5</p>
-              </div>
-              <div class="tm-result-progress-circle">
-                <div class="tn-progress-circle" id="circle">
-                  <div class="tm-progress-circle-text">
-                    <span>Right Answer</span>
-                    <h3>80%</h3>
-                  </div>
-                </div>
-                <div class="tm-progress-circle-result-list">
-                  <ul>
-                    <li><span>Correct Answers</span> : 4</li>
-                    <li><span>Incorrect Answers</span> : 0</li>
-                  </ul>
-                </div>
-                <div class="tm-progress-circle-result-btn">
-                  <a href="check-answer.html" class="tm-btn">check answers</a>
-                  <a href="#" class="tm-btn-main">Download certificate</a>
-                </div>
-              </div>
-            </div>
+
+          @if(examresult?.is_promoted)
+          {
+             <img src="assets/img/result-top-icon.png" alt="" class="img-fluid">
+            <h2 class="exam_pass">Passed</h2>
+          }
+          @else{
+             <img src="assets/img/exam-fail.png" alt="" class="img-fluid">
+             <h2 class="exam_failed">Failed</h2>
+          }
+
+          <h3>Marks: <span>{{examresult?.marksObtained}}/{{examresult?.total_question*examresult?.mark_per_question}}</span></h3>
+          <p>Total Number of questions: {{examresult?.total_question}}</p>
+        </div>
+        <div class="tm-result-progress-circle">
+           <ng-container *ngIf="commonService.isBrowser() && ChartOptions">
+             <apx-chart
+             *ngIf="commonService.isBrowser() && ChartOptions"
+              [series]="ChartOptions.series"
+              [chart]="ChartOptions.chart"
+              [labels]="ChartOptions.labels"
+              [colors]="ChartOptions.colors"
+              [plotOptions]="ChartOptions.plotOptions">
+            </apx-chart>
+           </ng-container>
+
+
+
+          <div class="tm-progress-circle-result-list">
+            <ul>
+              <li><span>Correct Answers</span> : {{examresult?.totalObtained}}</li>
+              <li><span>Incorrect Answers</span> : {{examresult?.total_question-examresult?.totalObtained}}</li>
+            </ul>
+          </div>
+          <div class="tm-progress-circle-result-btn">
+            <a href="javascript:void(0)" class="tm-btn">check answers</a>
+            <a href="javascript:void(0)" class="tm-btn-main">Download certificate</a>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>

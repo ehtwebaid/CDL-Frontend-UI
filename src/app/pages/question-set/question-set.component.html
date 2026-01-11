@@ -1,188 +1,53 @@
-<div class="container">
+<div class="container" style="width: 100vw;">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <div class="tm-exam-sec">
         <div class="tm-exam-instructions-sec-title text-center">
-          <h2><span>Exam 01:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+          <h2><span>Exam {{selectIndex | number:'2.0-0'}}:</span> {{course?.name}}.</h2>
         </div>
         <div class="tm-exam-sec-panel-main">
-          <div class="tm-exam-sec-panel">
-            <p>1. Nunc fringilla metus lacinia dignissim faucibus?</p>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Consectetur adipiscing elit.
-                </label>
+
+          <cdk-virtual-scroll-viewport itemSize="80" style="height: 300px; width: 100%">
+            <!-- ✅ REAL DOM ELEMENT (not ng-container) -->
+            <div *cdkVirtualFor="let question of course?.questions; let i = index" class="virtual-row">
+              <div class="tm-exam-sec-panel">
+
+                <!-- Question row -->
+                <div class="tm-question d-flex align-items-start">
+                  <div class="tm-question-no">
+                    {{ i + 1 }}.
+                  </div>
+
+                  <div class="tm-question-body">
+                    @if (question?.question_type == 'T') {
+                    <span>{{ question?.question }} ?</span>
+                    }
+                    @else if (question?.question_type == 'F') {
+                    <img [src]="question?.question_preview" class="img-thumbnail tm-question-image"
+                      alt="Question Image" /> ?
+                    }
+                  </div>
+                </div>
+
+                <!-- Options -->
+                <div class="tm-exam-sec-panel-form-check-box"
+                  *ngFor="let opt of question?.answer_option; let idx = index">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question{{i}}" id="flexCheck{{i}}{{idx}}"
+                      (click)="chooseAnswer(i,idx)">
+                    <label class="form-check-label" for="flexCheck{{i}}{{idx}}">
+                      {{opt}}
+                    </label>
+                  </div>
+                </div>
+
               </div>
+
             </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Morbi et nisl eu dolor posuere ornare
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sed scelerisque velit at velit
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sed suscipit pulvinar sodales.
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="tm-exam-sec-panel">
-            <p>2. Mauris fermentum eros placerat viverra rhoncus?</p>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Morbi et nisl eu dolor posuere ornare
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Consectetur adipiscing elit.
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sed suscipit pulvinar sodales.
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sed scelerisque velit at velit
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="tm-exam-sec-panel">
-            <p>3. Nam nec urna arcu ?</p>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Morbi et nisl eu dolor posuere ornare
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Consectetur adipiscing elit.
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sed suscipit pulvinar sodales.
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sed scelerisque velit at velit
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="tm-exam-sec-panel">
-            <p>4. Nam nec urna arcu ?</p>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Morbi et nisl eu dolor posuere ornare
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Consectetur adipiscing elit.
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sed suscipit pulvinar sodales.
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sed scelerisque velit at velit
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="tm-exam-sec-panel">
-            <p>5. Nam nec urna arcu ?</p>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Morbi et nisl eu dolor posuere ornare
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Consectetur adipiscing elit.
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sed suscipit pulvinar sodales.
-                </label>
-              </div>
-            </div>
-            <div class="tm-exam-sec-panel-form-check-box">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sed scelerisque velit at velit
-                </label>
-              </div>
-            </div>
-          </div>
+          </cdk-virtual-scroll-viewport>
+
           <div class="text-center mt-5">
-            <a [routerLink]="'/exam/result/test'" class="tm-btn-main">Start exam</a>
+            <button class="tm-btn-main" (click)="submitAnswer();">Submit Answer</button>
           </div>
         </div>
       </div>
